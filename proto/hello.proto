@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "proto/hello";
+
+package hello;
+
+// Hello defines the grpc signatures exposed in the HelloServer.
+service Hello {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// HelloRequest defines the request message structure.
+message HelloRequest {
+  string name = 1;
+}
+
+// HelloReply defines the response message structure.
+message HelloReply {
+  string message = 1;
+}

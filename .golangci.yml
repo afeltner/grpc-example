@@ -1,0 +1,63 @@
+run:
+  skip-dirs:
+    - vendor
+    - testdata
+    - generated
+
+  skip-files:
+#    - ".*_test\\.go$"
+    - exec.go
+
+linters:
+  enable-all: true
+  disable:
+    - gci # need to decide if replacing goimports - eg: https://github.com/daixiang0/gci/issues/4 applies to us
+    - godox # want to keep track of future things to do
+    - gofmt # goimports does what it does and more
+    - gofumpt # may consider gofumports instead (or gofumpt + gci)
+    - golint # deprecated - replaced by revive
+    - interfacer # deprecated - replaced by exportloopref
+    - maligned # don't care
+    - nlreturn # just no
+    - scopelint # deprecated
+    - tagliatelle # defeats the purpose
+    - wsl # too fussy
+
+linters-settings:
+  goimports:
+    local-prefixes: git-pss.uberultrasdlc.com
+
+  gocyclo:
+    min-complexity: 10
+
+  cyclop:
+    max-complexity: 10
+    package-average: 5
+    skip-tests: true
+
+  godot:
+    scope: top
+    capital: true
+
+  lll:
+    tab-width: 2
+
+  nolintlint:
+    allow-leading-space: false
+
+  wrapcheck:
+    ignoreSigs:
+      - .Errorf(
+      - errors.New(
+      - errors.Unwrap(
+      - .Wrap(
+      - .Wrapf(
+      - .WithMessage(
+      - .ErrorOrNil()
+
+#  gomoddirectives:
+#    replace-allow-list:
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

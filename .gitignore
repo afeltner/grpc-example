@@ -1,0 +1,6 @@
+# Project-specific
+cmd/hello-server/hello-server
+example/hello-client/hello-client
+
+# IDE
+.idea/shelf

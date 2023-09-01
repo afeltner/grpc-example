@@ -5,6 +5,21 @@ This is an example project using grpc calls.  There are 3 parts to it.
 * A client that makes a request and prints the results.
 * The protobuf request/response contract.
 
+## Prerequisites
+
+Install the protocol compiler plugins for Go using the following commands:
+
+```
+$ go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+$ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+```
+
+Make sure you PATH contains the GOPATH bin directory.  If not do:
+
+```
+export PATH="$PATH:$(go env GOPATH)/bin"
+``` 
+
 # To regenerate the proto files do:
 
 ```
